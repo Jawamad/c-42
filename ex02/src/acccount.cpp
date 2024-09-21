@@ -2,10 +2,10 @@
 #include <ctime>
 #include <iostream>
 
-
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[" << std::time(0) << "] ";
+	std::time_t now = std::time(0);
+	std::cout << "[" << std::ctime(&now) << "] ";
 }
 
 int	Account::getNbAccounts()
@@ -27,16 +27,31 @@ int	Account::getNbWithdrawals()
 	return _totalNbWithdrawals;
 }
 
+void	Account::makeDeposit( int deposit )
+{
+	_amount+= deposit;
+	_nbDeposits++;
+	_totalAmount += deposit;
+	_totalNbDeposits++;
+	displayStatus();
+}
+	bool	makeWithdrawal( int withdrawal );
+	int		checkAmount( void ) const;
+	void	displayStatus( void ) const;
+
+Account::Account( int initial_deposit )
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex 
+}
+
+Account::~Account( void )
+{
+
+}
+
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
 	std::cout << "accounts:"<< getNbAccounts() << ";total:" << getTotalAmount() << ";deposits" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals;
 }
-
-	Account( int initial_deposit );
-	~Account( void );
-
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
