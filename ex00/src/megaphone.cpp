@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-void str_toupper(char* str)
+void str_toupper(std::string str)
 {
 	for (int i = 0; str[i]; i++)
 		str[i] = std::toupper(str[i]);

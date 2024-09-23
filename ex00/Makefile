@@ -27,12 +27,12 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -rf $(DIR_OBJ)
-	@echo "$(BOLD)$(YELLOW)🧹🧼     Cleaned .o Cub3d's files     🧼🧹$(RESET)"
+	@echo "$(BOLD)$(YELLOW)🧹🧼     Cleaned .o files     🧼🧹$(RESET)"
 	@echo "\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BOLD)$(YELLOW)🧹🧼        Cleaned Cub3d exec        🧼🧹$(RESET)"
+	@echo "$(BOLD)$(YELLOW)🧹🧼        Cleaned exec        🧼🧹$(RESET)"
 	@echo "\n"
 
 re: fclean all

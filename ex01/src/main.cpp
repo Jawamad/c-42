@@ -6,7 +6,7 @@ std::string user_input(std::string message)
 
 	std::cout << message << std::endl;
 	std::getline(std::cin, input);
-	while (input.empty())
+	while (input.empty() and !std::cin.fail())
 	{
 		std::cout << "empty entry!" << std::endl;
 		std::cout << message << std::endl;
@@ -78,10 +78,17 @@ int main()
 {
 	std::string input;
 	Phonebook book;
-	while (input != "EXIT")
+	bool check_entry = true;
+
+	while (input != "EXIT" &&  check_entry)
 	{
 		input = user_input("welcome to your phonebook. What do you want to do? SEARCH, ADD, EXIT ?");
-		if (input == "ADD")
+		if (std::cin.fail())
+		{
+			check_entry = false;
+			std::cout << "Error : Entry close please relaunch your phonebook" << std::endl;
+		}
+		else if (input == "ADD")
 		{
 			add(&book);
 			std::cout << "contact added!" << std::endl;
