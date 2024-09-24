@@ -4,7 +4,7 @@
 void str_toupper(std::string str)
 {
 	for (int i = 0; str[i]; i++)
-		str[i] = std::toupper(str[i]);
+		std::cout << static_cast<char> (std::toupper(str[i]));
 }
 
 void	arg(char **argv)
@@ -12,7 +12,6 @@ void	arg(char **argv)
 	for (int i = 1; argv[i]; i++)
 	{
 		str_toupper(argv[i]);
-		std::cout << argv[i];
 	}
 }
 void	no_arg()
